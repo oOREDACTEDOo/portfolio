@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-agent RAG content pipeline — Jan Manns</title>
+<meta name="description" content="A designed-and-built RAG content production system: Supabase, n8n, and an 8-stage Claude pipeline.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #F7F6F5; --card: #FFFFFF; --border: #E0DEDC;
+    --ink: #070909; --muted: #6B6866; --accent: #EA4648;
+  }
+  body { font-family: 'Poppins', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+  a { color: var(--accent); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px 80px; }
+
+  .back-link { display: inline-block; margin: 32px 0 24px; font-size: 0.85rem; font-weight: 600; color: var(--muted); text-decoration: none; }
+  .back-link:hover { color: var(--accent); }
+
+  .tag { font-size: 0.7rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; display: block; }
+  h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; margin-bottom: 14px; }
+  .subhead { font-size: 1.05rem; color: var(--muted); margin-bottom: 28px; }
+  .stack-line { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 0; margin-bottom: 40px; }
+  .stack-line strong { color: var(--ink); font-weight: 600; }
+
+  h2 { font-size: 1.25rem; font-weight: 700; margin: 40px 0 12px; }
+  h3 { font-size: 1.02rem; font-weight: 600; margin: 24px 0 8px; }
+  p { margin-bottom: 14px; color: var(--ink); }
+  p.muted { color: var(--muted); font-size: 0.92rem; }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 16px; }
+  .arch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0 8px; }
+  .arch-grid .card h3 { margin-top: 0; font-size: 0.95rem; }
+  .arch-grid .card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0; }
+
+  ol.pipeline { list-style: none; counter-reset: stage; margin: 16px 0; }
+  ol.pipeline li { counter-increment: stage; position: relative; padding: 14px 0 14px 44px; border-bottom: 1px solid var(--border); }
+  ol.pipeline li:last-child { border-bottom: none; }
+  ol.pipeline li::before { content: counter(stage); position: absolute; left: 0; top: 14px; width: 28px; height: 28px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+  ol.pipeline strong { display: block; margin-bottom: 3px; }
+  ol.pipeline span { color: var(--muted); font-size: 0.9rem; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 16px 0 8px; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+  .stat .num { font-size: 1.3rem; font-weight: 700; }
+  .stat .label { font-size: 0.82rem; color: var(--muted); }
+
+  ul.folder-list { margin: 12px 0 12px 20px; font-size: 0.9rem; color: var(--muted); }
+  ul.folder-list li { margin-bottom: 6px; }
+  ul.folder-list code { background: var(--border); padding: 1px 6px; border-radius: 4px; font-size: 0.85rem; color: var(--ink); }
+
+  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+  footer a { font-weight: 600; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="../index.html">&larr; Back to portfolio</a>
+
+  <span class="tag">AI / Automation</span>
+  <h1>Multi-agent RAG content pipeline</h1>
+  <p class="subhead">A designed-and-built system for automated, on-brand content production across multiple clients, using retrieval-augmented generation and a multi-stage editing pipeline instead of a fine-tuned model per client.</p>
+  <p class="stack-line"><strong>Built with:</strong> Supabase (Postgres + pgvector), n8n, and Claude (Opus and Sonnet, used deliberately at different stages).</p>
+
+  <h2>The problem</h2>
+  <p>Producing on-brand content at volume for multiple clients usually means either a slow manual process or generic AI output that needs a full rewrite anyway. Training a separate fine-tuned model per client was the original idea, but Claude doesn't support fine-tuning, and a model-per-client approach is expensive to maintain and slow to update whenever a client's voice or facts change.</p>
+  <p>This system gets the same result, content that actually sounds like the client, without training anything: client voice, structure rules, and real source material live in a database, and get pulled into the generation pipeline at the right stage.</p>
+
+  <h2>Architecture</h2>
+  <div class="arch-grid">
+    <div class="card">
+      <h3>Supabase</h3>
+      <p>Postgres + pgvector. Stores per-client voice profiles, content-type templates, audience profiles, a growing knowledge base of the client's own past content (chunked and embedded), Search Console performance data, and job tracking. Nine tables in total.</p>
+    </div>
+    <div class="card">
+      <h3>n8n</h3>
+      <p>Orchestrates four workflows: ingest a client's existing content into the knowledge base, generate new content, update existing content, and a feedback loop that re-ingests published content so the knowledge base compounds over time.</p>
+    </div>
+    <div class="card">
+      <h3>Claude</h3>
+      <p>Runs the actual writing, in stages rather than one shot.</p>
+    </div>
+  </div>
+
+  <h2>The pipeline</h2>
+  <p class="muted">Eight stages per new article (nine or ten for an update, which adds an E-E-A-T assessment and a Search Console data pull up front).</p>
+  <ol class="pipeline">
+    <li><strong>Coverage check</strong><span>How much relevant material already exists for this client and topic, and what approach that calls for.</span></li>
+    <li><strong>Research</strong><span>Synthesise web search, competitor content, and the client's own material into a research brief.</span></li>
+    <li><strong>Angle + outline</strong><span>Find a differentiated angle and structure it against the content type's template.</span></li>
+    <li><strong>Draft</strong><span>Write the full piece against the voice profile and outline.</span></li>
+    <li><strong>Critique</strong><span>A separate editorial pass that flags unsupported claims, filler, and AI-typical phrasing by name ("In today's...", "It's important to note", vague qualifiers like "significant improvement"). This is the step that actually stops the output reading like AI content, not the writing step.</span></li>
+    <li><strong>Gap research</strong><span>Go find the specific evidence the critique says is missing.</span></li>
+    <li><strong>Rewrite</strong><span>Fold that evidence back in and fix what the critique flagged.</span></li>
+    <li><strong>Fact-check + polish</strong><span>Verify claims, add internal links from the client's own published-content map, final copyedit.</span></li>
+  </ol>
+  <p class="muted">Different stages deliberately use different models depending on how much judgement each one needs: Opus for outline/draft/critique, Sonnet for research, gap-filling, and polish. A real cost/quality decision, not just calling the API everywhere.</p>
+
+  <h2>What's actually built and tested, not just planned</h2>
+  <p>Workflow 1 (content ingestion) and Workflow 2 (new content generation) are complete: built node by node in n8n, tested end to end on a real 16-page client batch, with the specific bugs hit and fixed documented as they happened, raw HTML exceeding Claude's context window, an embeddings API body-mode gotcha, a Supabase trigger referencing the wrong column name, and so on. A second client was onboarded through the same pipeline.</p>
+  <p>Workflow 3 (content update, the more complex one, since it needs the Search Console API and the E-E-A-T assessment) and Workflow 4 (feedback loop) were also built node by node in n8n. Both were left untested end to end: a full update or feedback-loop run burns through Claude API calls fast, and it wasn't worth the token spend without a real client update queued up.</p>
+
+  <h2>Cost</h2>
+  <p class="muted">Calculated per pipeline stage rather than estimated in the abstract.</p>
+  <div class="stat-row">
+    <div class="stat"><div class="num">$0.55&ndash;$2.10</div><div class="label">per new article</div></div>
+    <div class="stat"><div class="num">$0.70&ndash;$2.50</div><div class="label">per update</div></div>
+    <div class="stat"><div class="num">&lt;$250/mo</div><div class="label">for hundreds of articles</div></div>
+  </div>
+
+  <h2>What's in the folder</h2>
+  <ul class="folder-list">
+    <li><code>RAG-Content-System-Plan.md</code> &mdash; the full plan: architecture, database design, all four n8n workflows node by node, the pipeline stages in full prompt detail, cost estimates, and a session-by-session build log</li>
+    <li><code>supabase-schema.sql</code> &mdash; the database schema</li>
+    <li><code>Claude Workflow/</code> and <code>Claude Workflow V2/</code> &mdash; actual pipeline outputs (research briefs, drafts, critiques, rewrites) from real generation runs</li>
+    <li><code>client-i-vto-guide.md</code> / <code>client-i-vto-briefs.md</code> &mdash; a real client's voice/tone/objective briefs used to build a voice profile</li>
+    <li><code>dataforseo_query.py</code> &mdash; a supporting script for keyword/SERP research feeding the pipeline</li>
+  </ul>
+  <p class="muted">Client names throughout this folder have been replaced with generic labels (Client A, Client D, and so on). The system and the results are real; the client identities have been withheld.</p>
+
+  <footer>
+    Full plan, schema, and pipeline outputs on <a href="https://github.com/oOREDACTEDOo/portfolio/tree/master/projects/rag-content-writing-workflow" target="_blank" rel="noopener">GitHub</a>.
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "total_keywords": 3421,
+  "total_volume": 596240,
+  "national": {
+    "keywords": 2517,
+    "volume": 472300,
+    "percentage": 73.6,
+    "intent_split": {
+      "Commercial": 1726,
+      "Transactional": 743,
+      "Informational": 48
+    }
+  },
+  "local": {
+    "keywords": 904,
+    "volume": 123940,
+    "percentage": 26.4,
+    "intent_split": {
+      "Commercial": 698,
+      "Transactional": 205,
+      "Informational": 1
+    }
+  },
+  "by_category": [
+    {
+      "category": "Mobile Storage/Containers",
+      "total_keywords": 2054,
+      "total_volume": 365400,
+      "local_keywords": 598,
+      "local_volume": 86060,
+      "local_percentage": 29.1,
+      "national_keywords": 1456,
+      "national_volume": 279340
+    },
+    {
+      "category": "General Equipment",
+      "total_keywords": 181,
+      "total_volume": 26870,
+      "local_keywords": 54,
+      "local_volume": 4930,
+      "local_percentage": 29.8,
+      "national_keywords": 127,
+      "national_volume": 21940
+    },
+    {
+      "category": "Trench Safety/Specialty",
+      "total_keywords": 165,
+      "total_volume": 27710,
+      "local_keywords": 13,
+      "local_volume": 1110,
+      "local_percentage": 7.9,
+      "national_keywords": 152,
+      "national_volume": 26600
+    }
+  ]
+}

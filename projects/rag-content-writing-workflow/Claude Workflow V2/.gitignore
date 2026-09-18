@@ -1,0 +1,7 @@
+outputs/drafts/*
+outputs/logs/*
+!outputs/drafts/.gitkeep
+!outputs/logs/.gitkeep
+.env
+node_modules/
+*.log

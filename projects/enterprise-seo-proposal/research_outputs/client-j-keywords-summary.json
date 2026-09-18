@@ -1,0 +1,381 @@
+{
+  "total_keywords": 840,
+  "by_country": {
+    "AU": {
+      "national": 40,
+      "local": 635,
+      "total_volume": 36560
+    },
+    "NZ": {
+      "national": 15,
+      "local": 150,
+      "total_volume": 1530
+    }
+  },
+  "by_service_category": {
+    "Excavators": 13430.0,
+    "General Equipment": 4730.0,
+    "Loaders": 1030.0,
+    "Pipe Plugging & Confined Space": 20.0,
+    "Pumps": 990.0,
+    "Shipping Containers": 9650.0,
+    "Shoring Boxes": 30.0,
+    "Telehandlers": 6180.0,
+    "Tilt Props & Propping": 1840.0,
+    "Traffic Management": 50.0,
+    "Worksite Facilities": 140.0
+  },
+  "top_national_keywords_au": [
+    {
+      "keyword": "excavator hire",
+      "search_volume": 6600.0
+    },
+    {
+      "keyword": "mini excavator hire",
+      "search_volume": 2900.0
+    },
+    {
+      "keyword": "forklift hire",
+      "search_volume": 2900.0
+    },
+    {
+      "keyword": "shipping container hire",
+      "search_volume": 1000.0
+    },
+    {
+      "keyword": "shipping containers for hire",
+      "search_volume": 1000.0
+    },
+    {
+      "keyword": "shipping container rental",
+      "search_volume": 1000.0
+    },
+    {
+      "keyword": "excavators for hire",
+      "search_volume": 880.0
+    },
+    {
+      "keyword": "storage containers for hire",
+      "search_volume": 880.0
+    },
+    {
+      "keyword": "acrow props hire",
+      "search_volume": 880.0
+    },
+    {
+      "keyword": "telehandler hire",
+      "search_volume": 720.0
+    },
+    {
+      "keyword": "telehandlers for hire",
+      "search_volume": 720.0
+    },
+    {
+      "keyword": "container hire",
+      "search_volume": 720.0
+    },
+    {
+      "keyword": "propping hire",
+      "search_volume": 590.0
+    },
+    {
+      "keyword": "storage container hire",
+      "search_volume": 480.0
+    },
+    {
+      "keyword": "excavator rental",
+      "search_volume": 390.0
+    },
+    {
+      "keyword": "loader hire",
+      "search_volume": 320.0
+    },
+    {
+      "keyword": "loaders for hire",
+      "search_volume": 320.0
+    },
+    {
+      "keyword": "self storage containers",
+      "search_volume": 320.0
+    },
+    {
+      "keyword": "portable storage containers",
+      "search_volume": 320.0
+    },
+    {
+      "keyword": "refrigerated container hire",
+      "search_volume": 260.0
+    }
+  ],
+  "top_local_keywords_au": [
+    {
+      "keyword": "plant hire hobart",
+      "search_volume": 720.0,
+      "city": "hobart"
+    },
+    {
+      "keyword": "self storage containers brisbane",
+      "search_volume": 390.0,
+      "city": "brisbane"
+    },
+    {
+      "keyword": "forklift hire sydney",
+      "search_volume": 320.0,
+      "city": "sydney"
+    },
+    {
+      "keyword": "propping hire sydney",
+      "search_volume": 320.0,
+      "city": "sydney"
+    },
+    {
+      "keyword": "excavator hire melbourne",
+      "search_volume": 320.0,
+      "city": "melbourne"
+    },
+    {
+      "keyword": "excavators for hire melbourne",
+      "search_volume": 320.0,
+      "city": "melbourne"
+    },
+    {
+      "keyword": "forklift hire melbourne",
+      "search_volume": 320.0,
+      "city": "melbourne"
+    },
+    {
+      "keyword": "equipment hire perth",
+      "search_volume": 260.0,
+      "city": "perth"
+    },
+    {
+      "keyword": "self storage containers melbourne",
+      "search_volume": 260.0,
+      "city": "melbourne"
+    },
+    {
+      "keyword": "equipment hire melbourne",
+      "search_volume": 260.0,
+      "city": "melbourne"
+    },
+    {
+      "keyword": "plant hire melbourne",
+      "search_volume": 260.0,
+      "city": "melbourne"
+    },
+    {
+      "keyword": "forklift hire brisbane",
+      "search_volume": 260.0,
+      "city": "brisbane"
+    },
+    {
+      "keyword": "excavator hire sydney",
+      "search_volume": 210.0,
+      "city": "sydney"
+    },
+    {
+      "keyword": "excavators for hire sydney",
+      "search_volume": 210.0,
+      "city": "sydney"
+    },
+    {
+      "keyword": "plant hire perth",
+      "search_volume": 210.0,
+      "city": "perth"
+    },
+    {
+      "keyword": "excavator hire brisbane",
+      "search_volume": 210.0,
+      "city": "brisbane"
+    },
+    {
+      "keyword": "excavators for hire brisbane",
+      "search_volume": 210.0,
+      "city": "brisbane"
+    },
+    {
+      "keyword": "shipping container hire brisbane",
+      "search_volume": 210.0,
+      "city": "brisbane"
+    },
+    {
+      "keyword": "shipping containers for hire brisbane",
+      "search_volume": 210.0,
+      "city": "brisbane"
+    },
+    {
+      "keyword": "equipment hire brisbane",
+      "search_volume": 210.0,
+      "city": "brisbane"
+    },
+    {
+      "keyword": "plant hire brisbane",
+      "search_volume": 210.0,
+      "city": "brisbane"
+    },
+    {
+      "keyword": "equipment hire gold coast",
+      "search_volume": 210.0,
+      "city": "gold coast"
+    },
+    {
+      "keyword": "excavator hire adelaide",
+      "search_volume": 170.0,
+      "city": "adelaide"
+    },
+    {
+      "keyword": "forklift hire adelaide",
+      "search_volume": 170.0,
+      "city": "adelaide"
+    },
+    {
+      "keyword": "excavator hire newcastle",
+      "search_volume": 170.0,
+      "city": "newcastle"
+    },
+    {
+      "keyword": "mini excavator hire newcastle",
+      "search_volume": 170.0,
+      "city": "newcastle"
+    },
+    {
+      "keyword": "equipment hire toowoomba",
+      "search_volume": 170.0,
+      "city": "toowoomba"
+    },
+    {
+      "keyword": "equipment hire geelong",
+      "search_volume": 170.0,
+      "city": "geelong"
+    },
+    {
+      "keyword": "equipment hire cairns",
+      "search_volume": 170.0,
+      "city": "cairns"
+    },
+    {
+      "keyword": "equipment hire canberra",
+      "search_volume": 140.0,
+      "city": "canberra"
+    }
+  ],
+  "top_keywords_nz": [
+    {
+      "keyword": "equipment hire",
+      "search_volume": 320.0,
+      "type": "national"
+    },
+    {
+      "keyword": "pump hire auckland",
+      "search_volume": 170.0,
+      "type": "local"
+    },
+    {
+      "keyword": "forklift hire auckland",
+      "search_volume": 140.0,
+      "type": "local"
+    },
+    {
+      "keyword": "plant hire",
+      "search_volume": 110.0,
+      "type": "national"
+    },
+    {
+      "keyword": "machinery hire",
+      "search_volume": 110.0,
+      "type": "national"
+    },
+    {
+      "keyword": "container hire auckland",
+      "search_volume": 90.0,
+      "type": "local"
+    },
+    {
+      "keyword": "container hire hamilton",
+      "search_volume": 90.0,
+      "type": "local"
+    },
+    {
+      "keyword": "container hire napier",
+      "search_volume": 70.0,
+      "type": "local"
+    },
+    {
+      "keyword": "excavator hire auckland",
+      "search_volume": 40.0,
+      "type": "local"
+    },
+    {
+      "keyword": "forklift hire hamilton",
+      "search_volume": 40.0,
+      "type": "local"
+    },
+    {
+      "keyword": "equipment hire palmerston north",
+      "search_volume": 40.0,
+      "type": "local"
+    },
+    {
+      "keyword": "heavy equipment hire",
+      "search_volume": 30.0,
+      "type": "national"
+    },
+    {
+      "keyword": "equipment hire hamilton",
+      "search_volume": 30.0,
+      "type": "local"
+    },
+    {
+      "keyword": "shipping container hire auckland",
+      "search_volume": 20.0,
+      "type": "local"
+    },
+    {
+      "keyword": "shipping containers for hire auckland",
+      "search_volume": 20.0,
+      "type": "local"
+    },
+    {
+      "keyword": "pump hire hamilton",
+      "search_volume": 20.0,
+      "type": "local"
+    },
+    {
+      "keyword": "plant hire hamilton",
+      "search_volume": 20.0,
+      "type": "local"
+    },
+    {
+      "keyword": "hydraulic shoring",
+      "search_volume": 10.0,
+      "type": "national"
+    },
+    {
+      "keyword": "confined space equipment hire",
+      "search_volume": 10.0,
+      "type": "national"
+    },
+    {
+      "keyword": "trench safety equipment",
+      "search_volume": 10.0,
+      "type": "national"
+    }
+  ],
+  "volume_by_city_au": {
+    "brisbane": 2470.0,
+    "melbourne": 2430.0,
+    "sydney": 1550.0,
+    "hobart": 820.0,
+    "adelaide": 690.0,
+    "perth": 670.0,
+    "newcastle": 580.0,
+    "townsville": 360.0,
+    "cairns": 310.0,
+    "gold coast": 300.0,
+    "darwin": 240.0,
+    "geelong": 240.0,
+    "toowoomba": 230.0,
+    "wollongong": 210.0,
+    "canberra": 170.0
+  }
+}

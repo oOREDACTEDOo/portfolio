@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client G Content Brief</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #f8f8f8;
+  min-width: 1024px;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1a1a;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  min-height: 48px;
+}
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+nav a:hover { color: #fff; background: #333; }
+nav .brand {
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  margin-right: 12px;
+  padding: 6px 0;
+  white-space: nowrap;
+}
+
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+.page-header {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #e0e0e0;
+}
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+.page-header .meta {
+  font-size: 13px;
+  color: #666;
+}
+
+section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px;
+  margin-bottom: 24px;
+  border: 1px solid #e8e8e8;
+}
+section:nth-child(even) { background: #fafafa; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
+}
+.section-number {
+  display: inline-block;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 22px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+section h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+  margin: 20px 0 8px;
+}
+
+p { margin-bottom: 12px; }
+p:last-child { margin-bottom: 0; }
+
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+li { margin-bottom: 4px; }
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+.fact-item {
+  background: #f4f4f4;
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+.fact-item .label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 2px;
+}
+.fact-item .value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 1023px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.audience-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 16px;
+}
+.audience-card h3 {
+  font-size: 12px;
+  margin-bottom: 10px;
+  border: none;
+  padding: 0;
+}
+.audience-card ul { margin-bottom: 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 8px;
+}
+th {
+  background: #f0f0f0;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+  border-bottom: 2px solid #ddd;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+
+.structure-steps {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+}
+.structure-steps li {
+  counter-increment: step;
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.structure-steps li:last-child { border-bottom: none; }
+.structure-steps li::before {
+  content: counter(step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  font-size: 12px;
+  font-weight: 700;
+  color: #555;
+  margin-top: 2px;
+}
+
+.criteria-list {
+  list-style: none;
+  padding-left: 0;
+}
+.criteria-list li {
+  display: flex;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.criteria-list.pass li::before {
+  content: "✓";
+  color: #2e7d32;
+  font-weight: 700;
+  min-width: 16px;
+}
+.criteria-list.fail li::before {
+  content: "✗";
+  color: #c62828;
+  font-weight: 700;
+  min-width: 16px;
+}
+
+.rules-list {
+  list-style: none;
+  padding-left: 0;
+}
+.rules-list li {
+  padding: 10px 14px;
+  border-left: 3px solid #1a1a1a;
+  margin-bottom: 8px;
+  background: #f9f9f9;
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+}
+.rules-list li strong { display: block; margin-bottom: 2px; }
+
+.sample {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.sample:last-child { margin-bottom: 0; }
+.sample-label {
+  background: #f0f0f0;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #555;
+}
+.sample blockquote {
+  border-left: 4px solid #1a1a1a;
+  margin: 0;
+  padding: 16px 20px;
+  background: #fff;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #333;
+}
+.sample .annotation {
+  padding: 12px 16px;
+  background: #fffbf0;
+  border-top: 1px solid #f0e8c8;
+  font-size: 13px;
+  color: #555;
+}
+.sample .annotation strong { color: #1a1a1a; }
+
+.vocab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.vocab-tag {
+  background: #f0f0f0;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #444;
+}
+
+.avoid-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.avoid-list li {
+  background: #fff0f0;
+  border: 1px solid #fcc;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #c62828;
+  margin-bottom: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 12px;
+  color: #aaa;
+}
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">Client G Content Brief</span>
+  <a href="#client-overview">1. Client</a>
+  <a href="#products">2. Products</a>
+  <a href="#audience">3. Audience</a>
+  <a href="#voice">4. Voice &amp; Tone</a>
+  <a href="#content-type">5. Content Type</a>
+  <a href="#quality">6. Quality Criteria</a>
+  <a href="#mistakes">7. Common Mistakes</a>
+  <a href="#writing-rules">8. Writing Rules</a>
+  <a href="#proof">9. Proof Elements</a>
+  <a href="#cta">10. CTA Guidelines</a>
+  <a href="#samples">11. Sample Passages</a>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <h1>Client G Content Brief</h1>
+    <div class="meta">Operational content guide for Webprofits colleagues — sourced from Supabase RAG Content Production System</div>
+  </div>
+
+  <section id="client-overview">
+  <h2><span class="section-number">1</span> Client Overview</h2>
+  <div class="fact-grid">
+    <div class="fact-item"><div class="label">Brand Name</div><div class="value">Client G</div></div>
+    <div class="fact-item"><div class="label">Industry</div><div class="value">Home Improvement / Fly Screens / Window Furnishings</div></div>
+    <div class="fact-item"><div class="label">Market</div><div class="value">Australia</div></div>
+    <div class="fact-item"><div class="label">Business Type</div><div class="value">B2C</div></div>
+    <div class="fact-item"><div class="label">Website</div><div class="value"><a href="https://clientg.example.com" target="_blank">clientg.example.com</a></div></div>
+    <div class="fact-item"><div class="label">Location</div><div class="value">Hornsby NSW 2077</div></div>
+    <div class="fact-item"><div class="label">Phone</div><div class="value">1300 884 842</div></div>
+    <div class="fact-item"><div class="label">ABN</div><div class="value">00000000000</div></div>
+    <div class="fact-item"><div class="label">Writing Language</div><div class="value">Australian English</div></div>
+    <div class="fact-item"><div class="label">Rating</div><div class="value">4.2 / 5 stars</div></div>
+    <div class="fact-item"><div class="label">In Business</div><div class="value">30+ years</div></div>
+    <div class="fact-item"><div class="label">Ownership</div><div class="value">Family-owned</div></div>
+    <div class="fact-item"><div class="label">Made In</div><div class="value">100% Australian made</div></div>
+    <div class="fact-item"><div class="label">Warranty</div><div class="value">7-year product warranty</div></div>
+    <div class="fact-item"><div class="label">Proprietary Brand</div><div class="value">ALLEGRO&#8482; pleated screens</div></div>
+  </div>
+</section>
+
+  <section id="products">
+  <h2><span class="section-number">2</span> Products &amp; Pricing</h2>
+  <table>
+    <thead>
+      <tr><th>Product</th><th>Price Range</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ALLEGRO&#8482; Pleated Insect Screens</td><td>$1,100&ndash;$9,500</td><td>Proprietary brand. Trademark symbol always required.</td></tr>
+      <tr><td>Retractable Fly Screens</td><td>$490&ndash;$2,000</td><td>&mdash;</td></tr>
+      <tr><td>Frame colours (standard)</td><td>No extra charge</td><td>100+ colours &mdash; key differentiator vs competitors who charge extra</td></tr>
+      <tr><td>Frame colours (premium)</td><td>Additional cost</td><td>200+ colours available</td></tr>
+      <tr><td>Mesh &mdash; stainless steel security</td><td>&mdash;</td><td>For apartments where security is a priority. Tough, tear-resistant.</td></tr>
+      <tr><td>Mesh &mdash; fibreglass</td><td>&mdash;</td><td>For villas near water. Rust and debris resistant.</td></tr>
+      <tr><td>Installation</td><td>&mdash;</td><td>Professional only. Free on-site consultation offered.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+  <section id="audience">
+  <h2><span class="section-number">3</span> Target Audience Persona</h2>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <h3>Who They Are</h3>
+      <p>Sydney and greater metro area homeowners, aged approximately 35&ndash;65, owning or renovating a property. Mix of house and apartment/unit owners in mid-to-premium suburbs. Primary decision-maker &mdash; they research, contact, and approve the purchase directly. Often in a renovation, new build, or home upgrade phase.</p>
+    </div>
+    <div class="audience-card">
+      <h3>Already Knows</h3>
+      <ul>
+        <li>What fly screens are and why they need them</li>
+        <li>That standard/generic screens exist but are often unsightly</li>
+        <li>Basic home improvement concepts</li>
+        <li>Terms: fly screen, retractable, pleated, bifold, mesh</li>
+      </ul>
+    </div>
+    <div class="audience-card">
+      <h3>Struggling With</h3>
+      <ul>
+        <li>Wanting fresh air without insects entering</li>
+        <li>Finding screens that match home aesthetics</li>
+        <li>Intrusive floor tracks (trip hazard)</li>
+        <li>Large, unusual, or corner openings standard screens can&rsquo;t cover</li>
+        <li>Unprofessional or unresponsive trade suppliers</li>
+        <li>Products that fade or break quickly</li>
+      </ul>
+    </div>
+    <div class="audience-card">
+      <h3>Sceptical Of</h3>
+      <ul>
+        <li>Cheap imported materials</li>
+        <li>Hard-sell salespeople</li>
+        <li>Ugly or bulky solutions that ruin the look of a room</li>
+        <li>Products without strong warranty backing</li>
+        <li>Generic solutions requiring floor tile cutting or visible tracks</li>
+      </ul>
+    </div>
+  </div>
+  <h3>Responds To</h3>
+  <ul>
+    <li>Australian made + family business trust signals</li>
+    <li>30 years heritage and industry authority</li>
+    <li>7-year warranty</li>
+    <li>Free on-site consultation (low-pressure framing)</li>
+    <li>Professional installation with seamless finish</li>
+    <li>Aesthetics-first language: &ldquo;barely noticeable&rdquo;, &ldquo;seamless integration&rdquo;, &ldquo;enhances your home&rdquo;</li>
+    <li>Specific testimonials naming the installer and suburb</li>
+    <li>Implicit competitor comparison (&ldquo;other companies&rdquo; vs Client G)</li>
+  </ul>
+</section>
+
+  <section id="voice">
+  <h2><span class="section-number">4</span> Voice &amp; Tone Profile</h2>
+  <div class="two-col">
+    <div>
+      <h3>Tone</h3>
+      <p>Friendly, accessible, and informative. Positions Client G as a knowledgeable guide for homeowners rather than a pushy sales brand. Consistently approachable &mdash; writes as if advising a friend on home improvement decisions.</p>
+      <h3>Sentence Patterns</h3>
+      <p>Medium-length sentences mixed with shorter declarative statements. Frequent use of &ldquo;you&rdquo; and &ldquo;your home&rdquo;. Common pattern: state a benefit or point, then explain why it matters to the reader. Generally active voice.</p>
+      <h3>Vocabulary</h3>
+      <p>Pairs functional benefits with aesthetic ones. &ldquo;Not only&hellip; but also&hellip;&rdquo; is a recurring construction. Avoid technical jargon.</p>
+      <div class="vocab-tags">
+        <span class="vocab-tag">aesthetics</span>
+        <span class="vocab-tag">liveability</span>
+        <span class="vocab-tag">complement</span>
+        <span class="vocab-tag">versatile</span>
+        <span class="vocab-tag">sleek</span>
+        <span class="vocab-tag">sophisticated</span>
+        <span class="vocab-tag">stylish</span>
+        <span class="vocab-tag">practical</span>
+        <span class="vocab-tag">enhance</span>
+        <span class="vocab-tag">transform</span>
+      </div>
+      <h3>Opening Style</h3>
+      <p>Opens with a broad, relatable statement about a home improvement challenge or aspiration. Sets context before narrowing to the specific topic. Often acknowledges a common oversight or concern &mdash; e.g. &ldquo;Window treatments, while often overlooked, can help make a home feel complete.&rdquo;</p>
+    </div>
+    <div>
+      <h3>Closing Style</h3>
+      <p>Ends with a soft invitation to contact Client G, framed as expert guidance rather than a sales pitch. Brief and non-pushy. Example: &ldquo;As industry professionals, we can help you choose the right fly screen based on both your personal needs and preferences.&rdquo;</p>
+      <h3>Proof Style</h3>
+      <p>Company heritage and experience claims: &ldquo;first company to bring the style to Australia&rdquo;, &ldquo;30 years as Australia&rsquo;s leading supplier&rdquo;. Product capability claims. No external statistics or customer testimonials in blog format. Authority derived from longevity.</p>
+    </div>
+  </div>
+</section>
+
+  <section id="content-type">
+  <h2><span class="section-number">5</span> Content Type: Client G Blog Post</h2>
+  <div class="fact-grid" style="margin-bottom: 24px;">
+    <div class="fact-item"><div class="label">Slug</div><div class="value">Client G-blog-post</div></div>
+    <div class="fact-item"><div class="label">Word Count</div><div class="value">600&ndash;1,200 words</div></div>
+    <div class="fact-item"><div class="label">Primary Intent</div><div class="value">Informational</div></div>
+    <div class="fact-item"><div class="label">Business Context</div><div class="value">Drives organic traffic from homeowners researching home improvement. Top-of-funnel entry point to product pages and quote requests.</div></div>
+    <div class="fact-item"><div class="label">Audience Mindset</div><div class="value">Not yet ready to buy &mdash; gathering information, comparing options, or seeking reassurance.</div></div>
+    <div class="fact-item"><div class="label">Purpose</div><div class="value">Help Sydney homeowners solve a specific home improvement problem &mdash; with Client G fly screens as the natural conclusion, not the opening pitch.</div></div>
+  </div>
+  <h3>Structure Template</h3>
+  <ol class="structure-steps">
+    <li><strong>Hook</strong> &mdash; Relatable homeowner scenario or overlooked problem (1&ndash;2 paragraphs)</li>
+    <li><strong>Context</strong> &mdash; What this post covers and why it matters (1 paragraph)</li>
+    <li><strong>H2 main sections &times; 3&ndash;6</strong> &mdash; 150&ndash;250 words each. Types, options, tips, considerations. H3 sub-items within each main section where relevant.</li>
+    <li><strong>Practical application</strong> (optional) &mdash; How to choose / what to do next</li>
+    <li><strong>Soft CTA</strong> &mdash; Client G product as logical conclusion + contact/quote prompt</li>
+  </ol>
+</section>
+
+  <section id="quality">
+  <h2><span class="section-number">6</span> Quality Criteria</h2>
+  <p>Pass/fail standards applied at the Critique stage of the content pipeline.</p>
+  <ul class="criteria-list pass">
+    <li>Opens with a homeowner scenario &mdash; reader sees their own problem before Client G appears.</li>
+    <li>Client G introduced as logical solution after the category is established &mdash; never in the first two paragraphs.</li>
+    <li>Specific credentials used (ALLEGRO&#8482;, 30 years, Australian made) rather than vague quality claims.</li>
+    <li>Each H2 covers a distinct angle &mdash; not rephrasing the same point.</li>
+    <li>Post is genuinely useful regardless of purchase decision.</li>
+    <li>CTA connects the specific post topic to the specific Client G product that solves it.</li>
+  </ul>
+</section>
+
+  <section id="mistakes">
+  <h2><span class="section-number">7</span> Common Mistakes</h2>
+  <p>Failure patterns to watch for in AI-generated output for this client.</p>
+  <ul class="criteria-list fail">
+    <li>Client G mentions too early or too frequent &mdash; reads as advertorial.</li>
+    <li>Generic home improvement content with no Client G angle &mdash; could appear on any d&eacute;cor blog.</li>
+    <li>Flat heading structure (all H2, no H3) &mdash; thin and hard to scan.</li>
+    <li>CTA mid-content or repeated &mdash; feels pushy for an informational post.</li>
+    <li>Opening starts with product/brand not reader problem &mdash; loses the reader immediately.</li>
+  </ul>
+</section>
+
+  <section id="writing-rules">
+  <h2><span class="section-number">8</span> Writing Rules</h2>
+  <ul class="rules-list">
+    <li><strong>Australian English</strong> Spellings: colour, liveability, recognise, organisation, etc.</li>
+    <li><strong>No em dashes</strong> Rephrase or use a comma instead. Em dashes are banned in pipeline output.</li>
+    <li><strong>Active voice</strong> Avoid passive constructions throughout.</li>
+    <li><strong>Second-person address</strong> &ldquo;You&rdquo; and &ldquo;your home&rdquo; &mdash; not &ldquo;homeowners&rdquo; or &ldquo;one&rdquo;.</li>
+    <li><strong>&ldquo;Not only&hellip; but also&hellip;&rdquo;</strong> Approved recurring construction for pairing functional and aesthetic benefits.</li>
+    <li><strong>No statistics from unnamed sources</strong> Only use verifiable claims or company-owned facts.</li>
+    <li><strong>No jargon</strong> Accessible home improvement vocabulary only.</li>
+    <li><strong>Soft CTA at close only</strong> One CTA, at the end, framed as expert guidance &mdash; not a sales pitch.</li>
+    <li><strong>Blockquote format for direct quotes</strong> Any direct quotes (e.g. from Jorge Henao, owner) must use blockquote format, not inline quotation.</li>
+  </ul>
+</section>
+
+  <section id="proof">
+  <h2><span class="section-number">9</span> Proof &amp; Authority Elements</h2>
+  <p>Approved credentials and how to deploy them in content.</p>
+  <table>
+    <thead>
+      <tr><th>Credential</th><th>Usage Note</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>&ldquo;30+ years in business&rdquo;</td><td>Use to establish authority before introducing the product. Not a throwaway line.</td></tr>
+      <tr><td>&ldquo;Australia&rsquo;s leading supplier&rdquo;</td><td>Acceptable as a heritage claim &mdash; not as a current ranking assertion without a source.</td></tr>
+      <tr><td>&ldquo;First company to bring [product] to Australia&rdquo;</td><td>Use for ALLEGRO&#8482; pleated screens specifically.</td></tr>
+      <tr><td>&ldquo;100% Australian made&rdquo;</td><td>Use when differentiating from cheap imports &mdash; connects directly to audience scepticism.</td></tr>
+      <tr><td>&ldquo;Family-owned&rdquo;</td><td>Use as a trust signal alongside heritage. Pairs well with low-pressure framing.</td></tr>
+      <tr><td>&ldquo;7-year warranty&rdquo;</td><td>Use to address durability concerns. Strongest proof point for the sceptical buyer.</td></tr>
+      <tr><td>ALLEGRO&#8482;</td><td>Always use the trademark symbol. Specific product name &mdash; not a generic term.</td></tr>
+      <tr><td>&ldquo;4.2/5 star rating&rdquo;</td><td>Use sparingly and with context &mdash; not as a lead claim.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+  <section id="cta">
+  <h2><span class="section-number">10</span> CTA Guidelines</h2>
+  <ul>
+    <li><strong>One CTA per post, at the close only</strong> &mdash; no mid-content interruptions.</li>
+    <li><strong>Frame as expert guidance, not a sales push.</strong> Example blockquote:</li>
+  </ul>
+  <blockquote style="border-left: 4px solid #1a1a1a; padding: 12px 20px; margin: 12px 0 16px; background: #f9f9f9; font-style: italic; color: #333;">
+    &ldquo;As industry professionals, we can help you choose the right fly screen based on both your personal needs and preferences.&rdquo;
+  </blockquote>
+  <ul>
+    <li><strong>Connect the CTA to the post topic</strong> &mdash; a post about ventilation ends with screens as the natural ventilation solution, not a generic &ldquo;contact us&rdquo;.</li>
+    <li><strong>Offer the free on-site consultation</strong> as the low-pressure entry point.</li>
+  </ul>
+  <h3>Avoid</h3>
+  <ul class="avoid-list">
+    <li>Buy now</li>
+    <li>Shop our range</li>
+    <li>Don&rsquo;t miss out</li>
+    <li>Urgency language</li>
+    <li>Repeated CTAs</li>
+  </ul>
+</section>
+
+  <section id="samples">
+  <h2><span class="section-number">11</span> Sample Passages</h2>
+  <p>Annotated examples of correct Client G voice from real published content.</p>
+
+  <div class="sample">
+    <div class="sample-label">Example 1 &mdash; Benefit + aesthetic pairing (&ldquo;not only&hellip; but also&hellip;&rdquo; pattern)</div>
+    <blockquote>&ldquo;By making the right choice, your fly screens will not only keep insects out but also enhance your home&rsquo;s aesthetics.&rdquo;</blockquote>
+    <div class="annotation"><strong>What&rsquo;s correct:</strong> Functional benefit (pest control) paired with aesthetic benefit using the &ldquo;not only&hellip; but also&hellip;&rdquo; construction. Direct second-person address (&ldquo;your fly screens&rdquo;). No brand mention required &mdash; product speaks for itself.</div>
+  </div>
+
+  <div class="sample">
+    <div class="sample-label">Example 2 &mdash; Problem &rarr; product authority statement</div>
+    <blockquote>&ldquo;There is no better deterrent for unwanted pests than a retractable fly screen. These screens have a proven track record of keeping creepy crawlies out of your home. The added bonus is that their sleek and sophisticated design makes retractable fly screens not only a great way to control pests, but an eye pleasing aesthetic for your home.&rdquo;</blockquote>
+    <div class="annotation"><strong>What&rsquo;s correct:</strong> Leads with the problem solution, adds aesthetic benefit second. &ldquo;Not only&hellip; but also&hellip;&rdquo; construction used naturally. Vocabulary: sleek, sophisticated &mdash; matches approved word list. Authority established without naming the brand.</div>
+  </div>
+
+  <div class="sample">
+    <div class="sample-label">Example 3 &mdash; Small space / liveability framing</div>
+    <blockquote>&ldquo;One of the best ways to transform small spaces is by opting to install fly screens. Offering both functional and aesthetic benefits, these simple additions can drastically improve liveability.&rdquo;</blockquote>
+    <div class="annotation"><strong>What&rsquo;s correct:</strong> Opens on the reader&rsquo;s problem (small spaces), not the product name. &ldquo;Liveability&rdquo; is a key vocabulary word &mdash; use it. Functional and aesthetic benefits paired in a single sentence. Product introduced as the solution only after the problem category is established.</div>
+  </div>
+
+  <div class="sample">
+    <div class="sample-label">Example 4 &mdash; Heritage authority + soft close</div>
+    <blockquote>&ldquo;Form and function are critical parts of our design process. For the last 30 years, Client G has been Australia&rsquo;s leading supplier of high-quality retractable fly screens.&rdquo;</blockquote>
+    <div class="annotation"><strong>What&rsquo;s correct:</strong> Heritage claim (&ldquo;30 years&rdquo;) used to establish authority, not as a sales opener. &ldquo;Form and function&rdquo; pairs the two Client G brand pillars in a single phrase. First-person &ldquo;our&rdquo; is appropriate here because the brand has already been established in the post. Suitable for a closing or transition paragraph &mdash; not an opener.</div>
+  </div>
+</section>
+
+</div>
+
+<footer>Generated from Supabase — RAG Content Production System &nbsp;·&nbsp; 2026-04-02</footer>
+
+</body>
+</html>

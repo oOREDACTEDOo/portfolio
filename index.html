@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jan Manns — Portfolio</title>
+<meta name="description" content="AI automation, SEO/AEO and MarTech systems built for client work by Jan Manns.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #F7F6F5;
+    --card: #FFFFFF;
+    --border: #E0DEDC;
+    --ink: #070909;
+    --muted: #6B6866;
+    --accent: #EA4648;
+  }
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero { padding: 72px 0 48px; }
+  .logo { font-size: 0.85rem; font-weight: 900; color: var(--accent); letter-spacing: 0.5px; margin-bottom: 20px; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; margin-bottom: 14px; max-width: 720px; }
+  .subhead { font-size: 1.05rem; color: var(--muted); max-width: 640px; margin-bottom: 28px; }
+  .stack-line { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 20px; }
+  .stack-line strong { color: var(--ink); font-weight: 600; }
+
+  section { padding: 40px 0; }
+  section h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+  section .section-note { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .grid.featured { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    display: block;
+    text-decoration: none;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card .tag { font-size: 0.7rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: block; }
+  .card h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 8px; }
+  .card p { font-size: 0.88rem; color: var(--muted); }
+
+  .featured .card h3 { font-size: 1.15rem; }
+  .featured .card p { font-size: 0.92rem; }
+
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--border); margin-top: 20px; }
+  footer p { font-size: 0.85rem; color: var(--muted); }
+  footer a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    header.hero { padding: 48px 0 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="logo">JAN MANNS — PORTFOLIO</div>
+    <h1>AI automation, SEO/AEO and MarTech systems, built for client work.</h1>
+    <p class="subhead">Working examples from agency and independent work: automated reporting pipelines, AI-visibility and technical SEO auditing, and AI content/workflow systems connected directly into real marketing platforms.</p>
+    <p class="stack-line"><strong>Built with:</strong> n8n, Anthropic Claude, Supabase, GitHub, and a set of custom MCP servers connecting Claude directly to Google Analytics, Search Console, Google Sheets/Docs, and DataForSEO, plus other platform APIs per project.</p>
+  </header>
+
+  <section id="highlights">
+    <h2>Highlights</h2>
+    <p class="section-note">The three pieces that best show the range: AI system-building, AI-visibility/SEO depth, and automated analytics reporting. Reports open with their sections collapsed, so click a section heading to expand the detail underneath it.</p>
+    <div class="grid featured">
+      <a class="card" href="reports/client-d-cro-audit-dashboard.html" target="_blank" rel="noopener">
+        <span class="tag">Analytics / Reporting</span>
+        <h3>Automated CRO audit dashboard</h3>
+        <p>Pulls live GA4 and GSC data via MCP, applies the LIFT model across every key page type, and outputs a prioritised, ready-to-read HTML report with no manual assembly.</p>
+      </a>
+      <a class="card" href="reports/aeo-outline-expansion.html" target="_blank" rel="noopener">
+        <span class="tag">SEO / AEO</span>
+        <h3>Answer Engine Optimisation: full methodology</h3>
+        <p>How AI-visibility auditing works in practice: testing how often a brand gets cited by ChatGPT, Gemini, and Perplexity against its competitors, and what actually moves that needle.</p>
+      </a>
+      <a class="card" href="writeups/rag-content-pipeline.html" target="_blank" rel="noopener">
+        <span class="tag">AI / Automation</span>
+        <h3>Multi-agent RAG content pipeline</h3>
+        <p>Supabase (pgvector) storing per-client voice and knowledge base, n8n orchestrating ingestion and generation, and an 8-stage Claude pipeline (research, outline, draft, critique, rewrite, fact-check) with a dedicated step to catch generic AI-sounding writing before it ships. Built and tested on real client content.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="reports">
+    <h2>Reports</h2>
+    <p class="section-note">Real client deliverables, each produced by a repeatable workflow rather than written by hand. Client identities are replaced with generic labels (Client A, B, and so on) for confidentiality. Reports open with their sections collapsed, so click a section heading to expand the detail underneath it. Most are password-protected — password provided separately.</p>
+    <div class="grid">
+      <a class="card" href="reports/client-b-llm-visibility-aeo-performance-report.html" target="_blank" rel="noopener"><h3>LLM visibility &amp; AEO performance report</h3><p>Client B</p></a>
+      <a class="card" href="reports/client-a-unified-strategy-forecast.html" target="_blank" rel="noopener"><h3>FY27 unified strategy and forecast</h3><p>Client A</p></a>
+      <a class="card" href="reports/client-a-schema-audit.html" target="_blank" rel="noopener"><h3>Schema audit</h3><p>Client A</p></a>
+      <a class="card" href="reports/client-a-page-speed-audit.html" target="_blank" rel="noopener"><h3>Page speed audit</h3><p>Client A</p></a>
+      <a class="card" href="reports/client-a-suburb-page-plan-burwood.html" target="_blank" rel="noopener"><h3>Suburb page plan (Burwood VIC)</h3><p>Client A</p></a>
+      <a class="card" href="reports/client-c-schema-audit.html" target="_blank" rel="noopener"><h3>Structured data (schema) audit</h3><p>Client C</p></a>
+      <a class="card" href="reports/client-c-mobile-nav-recommendations.html" target="_blank" rel="noopener"><h3>Mobile navigation recommendations</h3><p>Client C</p></a>
+      <a class="card" href="reports/client-d-competitor-seo-audit.html" target="_blank" rel="noopener"><h3>Competitor SEO audit</h3><p>Client D</p></a>
+      <a class="card" href="reports/client-d-paid-media-report.html" target="_blank" rel="noopener"><h3>Paid media report</h3><p>Client D</p></a>
+      <a class="card" href="reports/client-d-traffic-drop-analysis.html" target="_blank" rel="noopener"><h3>Organic traffic drop analysis</h3><p>Client D</p></a>
+      <a class="card" href="reports/client-e-keyword-page-mapping.html" target="_blank" rel="noopener"><h3>Keyword &amp; page mapping</h3><p>Client E</p></a>
+      <a class="card" href="reports/client-f-aeo-visibility-report.html" target="_blank" rel="noopener"><h3>AEO visibility report</h3><p>Client F</p></a>
+      <a class="card" href="reports/client-g-content-brief.html" target="_blank" rel="noopener"><h3>Content brief</h3><p>Client G</p></a>
+      <a class="card" href="reports/client-h-seo-strategy.html" target="_blank" rel="noopener"><h3>SEO strategy proposal</h3><p>Client H</p></a>
+      <a class="card" href="reports/claude-code-training.html" target="_blank" rel="noopener"><h3>Claude Code training guide</h3><p>Internal enablement doc</p></a>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p class="section-note">Working code and systems, not just write-ups.</p>
+    <div class="grid">
+      <a class="card" href="https://github.com/oOREDACTEDOo/portfolio/tree/master/projects/aeo-audit-system" target="_blank" rel="noopener"><span class="tag">Python</span><h3>AEO audit system</h3><p>A standalone tool auditing brand visibility across ChatGPT, Gemini, and Perplexity, plus Reddit sentiment and Wikipedia/Knowledge Graph presence.</p></a>
+      <a class="card" href="https://github.com/oOREDACTEDOo/portfolio/tree/master/projects/client-dashboard" target="_blank" rel="noopener"><span class="tag">TypeScript</span><h3>Client dashboard</h3><p>Express + TypeScript dashboard aggregating Google Calendar, Notion, Fathom, and site-ranking data per client, with a Claude assistant layer.</p></a>
+      <a class="card" href="https://github.com/oOREDACTEDOo/portfolio/tree/master/projects/client-time-manager" target="_blank" rel="noopener"><span class="tag">TypeScript</span><h3>Client time manager</h3><p>A second iteration of the dashboard concept, with a more robust scheduler and richer logging.</p></a>
+      <a class="card" href="SMS-LEAD-QUALIFIER-CASE-STUDY.md" target="_blank" rel="noopener"><span class="tag">n8n</span><h3>SMS lead-qualification agent</h3><p>Inbound SMS triggers an AI qualification step (Claude) that extracts intent and urgency, logs the lead to Supabase, and sends a tailored reply.</p></a>
+      <a class="card" href="https://github.com/oOREDACTEDOo/portfolio/tree/master/projects/mcp-fathom-video" target="_blank" rel="noopener"><span class="tag">Node.js / MCP</span><h3>Fathom MCP server</h3><p>A small MCP server built from scratch, exposing five tools over the Fathom meeting-recording API.</p></a>
+      <a class="card" href="https://github.com/oOREDACTEDOo/portfolio/tree/master/projects/mcp-gsc" target="_blank" rel="noopener"><span class="tag">Python / MCP</span><h3>Search Console MCP server</h3><p>A third-party, open-source MCP server for Google Search Console, included to show real experience wiring MCP into a workflow.</p></a>
+      <a class="card" href="https://github.com/oOREDACTEDOo/portfolio/tree/master/projects/enterprise-seo-proposal" target="_blank" rel="noopener"><span class="tag">Writing sample</span><h3>Enterprise SEO proposal</h3><p>An SEO agency proposal and RFP response, included as a writing/strategy sample rather than an automation example.</p></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Full repository and source on <a href="https://github.com/oOREDACTEDOo/portfolio" target="_blank" rel="noopener">GitHub</a>.</p>
+  </footer>
+</div>
+
+</body>
+</html>

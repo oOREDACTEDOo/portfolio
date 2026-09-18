@@ -1,0 +1,12 @@
+keyword,has_featured_snippet,featured_snippet_domain,has_people_also_ask,paa_question_count,has_ai_overview,legacy_brand_in_top_10,legacy_brand_found,paa_questions_sample
+shipping container hire,False,,True,3,False,True,www.royalwolf.com.au,"['How much does it cost to hire a shipping container for storage?', 'How much does a 20ft container cost?', 'What is the cheapest way to ship a container?']"
+equipment hire,False,,True,3,False,False,,"['Can you hire equipment from Bunnings?', 'How much to hire an excavator per day?', 'How much does it cost to hire an excavator per hour in Australia?']"
+what is trench shoring,False,,True,3,True,True,www.shorehire.com.au,"['What is the purpose of trench shoring?', 'What are the three types of shoring?', 'At what depth does a trench need shoring?']"
+how to hire an excavator,False,,True,3,True,True,www.orangehire.com.au,"['How much to hire an excavator per day?', 'Can anyone hire an excavator?', 'How much does it cost to hire an excavator per hour in Australia?']"
+container sizes,False,,True,3,True,True,www.royalwolf.com.au,"['What size are shipping containers in Australia?', 'What are the standard sizes of containers?', 'What size is a 40ft and 20ft container?']"
+excavator hire cost,False,,True,1,True,False,,['How much does it cost to hire an excavator per hour in Australia?']
+trench safety equipment,False,,True,3,False,True,www.shorehire.com.au,"['What is the 5 4 3 2 1 rule for trenching?', 'What are the 4 types of trench protection?', 'What are the safety requirements for trenches?']"
+shipping container dimensions,False,,True,3,True,True,www.royalwolf.com.au,"['What size are shipping containers in Australia?', 'Why do shipping containers only last 25 years?', 'What are the dimensions of a 20ft shipping container in meters?']"
+plant hire,False,,True,3,False,False,,"['What is meant by plant hire?', 'Why do they call it plant hire?', 'How much is an EWP to hire?']"
+digger hire,False,,False,0,False,False,,[]
+portable storage,False,,True,3,False,False,,"['What is the best portable storage?', 'Are PODS cheaper than self storage?', 'What is the cheapest method of storage?']"

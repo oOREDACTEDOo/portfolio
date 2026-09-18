@@ -1,0 +1,161 @@
+[
+  {
+    "keyword": "shipping container hire",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": false,
+    "legacy_brand_in_top_10": true,
+    "legacy_brand_found": "www.royalwolf.com.au",
+    "paa_questions_sample": [
+      "How much does it cost to hire a shipping container for storage?",
+      "How much does a 20ft container cost?",
+      "What is the cheapest way to ship a container?"
+    ]
+  },
+  {
+    "keyword": "equipment hire",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": false,
+    "legacy_brand_in_top_10": false,
+    "legacy_brand_found": null,
+    "paa_questions_sample": [
+      "Can you hire equipment from Bunnings?",
+      "How much to hire an excavator per day?",
+      "How much does it cost to hire an excavator per hour in Australia?"
+    ]
+  },
+  {
+    "keyword": "what is trench shoring",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": true,
+    "legacy_brand_in_top_10": true,
+    "legacy_brand_found": "www.shorehire.com.au",
+    "paa_questions_sample": [
+      "What is the purpose of trench shoring?",
+      "What are the three types of shoring?",
+      "At what depth does a trench need shoring?"
+    ]
+  },
+  {
+    "keyword": "how to hire an excavator",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": true,
+    "legacy_brand_in_top_10": true,
+    "legacy_brand_found": "www.orangehire.com.au",
+    "paa_questions_sample": [
+      "How much to hire an excavator per day?",
+      "Can anyone hire an excavator?",
+      "How much does it cost to hire an excavator per hour in Australia?"
+    ]
+  },
+  {
+    "keyword": "container sizes",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": true,
+    "legacy_brand_in_top_10": true,
+    "legacy_brand_found": "www.royalwolf.com.au",
+    "paa_questions_sample": [
+      "What size are shipping containers in Australia?",
+      "What are the standard sizes of containers?",
+      "What size is a 40ft and 20ft container?"
+    ]
+  },
+  {
+    "keyword": "excavator hire cost",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 1,
+    "has_ai_overview": true,
+    "legacy_brand_in_top_10": false,
+    "legacy_brand_found": null,
+    "paa_questions_sample": [
+      "How much does it cost to hire an excavator per hour in Australia?"
+    ]
+  },
+  {
+    "keyword": "trench safety equipment",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": false,
+    "legacy_brand_in_top_10": true,
+    "legacy_brand_found": "www.shorehire.com.au",
+    "paa_questions_sample": [
+      "What is the 5 4 3 2 1 rule for trenching?",
+      "What are the 4 types of trench protection?",
+      "What are the safety requirements for trenches?"
+    ]
+  },
+  {
+    "keyword": "shipping container dimensions",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": true,
+    "legacy_brand_in_top_10": true,
+    "legacy_brand_found": "www.royalwolf.com.au",
+    "paa_questions_sample": [
+      "What size are shipping containers in Australia?",
+      "Why do shipping containers only last 25 years?",
+      "What are the dimensions of a 20ft shipping container in meters?"
+    ]
+  },
+  {
+    "keyword": "plant hire",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": false,
+    "legacy_brand_in_top_10": false,
+    "legacy_brand_found": null,
+    "paa_questions_sample": [
+      "What is meant by plant hire?",
+      "Why do they call it plant hire?",
+      "How much is an EWP to hire?"
+    ]
+  },
+  {
+    "keyword": "digger hire",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": false,
+    "paa_question_count": 0,
+    "has_ai_overview": false,
+    "legacy_brand_in_top_10": false,
+    "legacy_brand_found": null,
+    "paa_questions_sample": []
+  },
+  {
+    "keyword": "portable storage",
+    "has_featured_snippet": false,
+    "featured_snippet_domain": null,
+    "has_people_also_ask": true,
+    "paa_question_count": 3,
+    "has_ai_overview": false,
+    "legacy_brand_in_top_10": false,
+    "legacy_brand_found": null,
+    "paa_questions_sample": [
+      "What is the best portable storage?",
+      "Are PODS cheaper than self storage?",
+      "What is the cheapest method of storage?"
+    ]
+  }
+]

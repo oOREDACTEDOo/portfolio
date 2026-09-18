@@ -1,0 +1,223 @@
+{
+  "default": [
+    "smallbusiness",
+    "Entrepreneur",
+    "business",
+    "marketing",
+    "startups"
+  ],
+  "industries": {
+    "office_supplies": [
+      "smallbusiness",
+      "office",
+      "procurement",
+      "facilitymanagement",
+      "OfficeChairs",
+      "Ergonomics",
+      "BuyItForLife"
+    ],
+    "saas": [
+      "saas",
+      "startups",
+      "Entrepreneur",
+      "webdev",
+      "software",
+      "SaaS",
+      "CloudComputing"
+    ],
+    "ecommerce": [
+      "ecommerce",
+      "shopify",
+      "Entrepreneur",
+      "smallbusiness",
+      "dropship",
+      "FulfillmentByAmazon"
+    ],
+    "healthcare": [
+      "healthcare",
+      "medicine",
+      "nursing",
+      "healthIT",
+      "medical",
+      "Telemedicine"
+    ],
+    "finance": [
+      "finance",
+      "personalfinance",
+      "investing",
+      "FinTech",
+      "CryptoCurrency",
+      "stocks"
+    ],
+    "real_estate": [
+      "realestate",
+      "RealEstateInvesting",
+      "FirstTimeHomeBuyer",
+      "CommercialRealEstate",
+      "PropertyManagement"
+    ],
+    "technology": [
+      "technology",
+      "tech",
+      "gadgets",
+      "software",
+      "programming",
+      "ITCareerQuestions"
+    ],
+    "food_beverage": [
+      "food",
+      "Cooking",
+      "recipes",
+      "FoodPorn",
+      "restaurant",
+      "KitchenConfidential"
+    ],
+    "travel_hospitality": [
+      "travel",
+      "solotravel",
+      "backpacking",
+      "TravelHacks",
+      "hotels",
+      "Hospitality"
+    ],
+    "retail": [
+      "retail",
+      "smallbusiness",
+      "Entrepreneur",
+      "ecommerce",
+      "TalesFromRetail"
+    ],
+    "education": [
+      "education",
+      "teaching",
+      "Teachers",
+      "edtech",
+      "OnlineEducation"
+    ],
+    "manufacturing": [
+      "manufacturing",
+      "engineering",
+      "3Dprinting",
+      "IndustrialEngineering",
+      "AskEngineers"
+    ],
+    "consulting": [
+      "consulting",
+      "management",
+      "Entrepreneur",
+      "smallbusiness",
+      "freelance"
+    ],
+    "marketing_advertising": [
+      "marketing",
+      "advertising",
+      "SEO",
+      "socialmedia",
+      "digital_marketing",
+      "PPC"
+    ],
+    "legal": [
+      "law",
+      "legaladvice",
+      "Ask_Lawyers",
+      "smallbusiness"
+    ],
+    "automotive": [
+      "cars",
+      "Autos",
+      "AutoDetailing",
+      "MechanicAdvice",
+      "Justrolledintotheshop"
+    ],
+    "fitness_wellness": [
+      "fitness",
+      "Fitness",
+      "bodybuilding",
+      "loseit",
+      "nutrition",
+      "wellness"
+    ],
+    "beauty_cosmetics": [
+      "beauty",
+      "MakeupAddiction",
+      "SkincareAddiction",
+      "Skincare_Addiction",
+      "beauty"
+    ],
+    "pet_care": [
+      "pets",
+      "dogs",
+      "cats",
+      "AskVet",
+      "DogCare"
+    ],
+    "home_improvement": [
+      "HomeImprovement",
+      "DIY",
+      "HomeDecorating",
+      "InteriorDesign",
+      "gardening"
+    ]
+  },
+  "size_based": {
+    "enterprise": [
+      "business",
+      "corporateIT",
+      "sysadmin",
+      "ITManagers"
+    ],
+    "smb": [
+      "smallbusiness",
+      "Entrepreneur",
+      "startups"
+    ],
+    "startup": [
+      "startups",
+      "Entrepreneur",
+      "SideProject",
+      "IMadeThis"
+    ]
+  },
+  "b2b": [
+    "smallbusiness",
+    "Entrepreneur",
+    "business",
+    "B2B",
+    "sales",
+    "procurement"
+  ],
+  "b2c": [
+    "BuyItForLife",
+    "reviews",
+    "ProductPorn",
+    "shutupandtakemymoney"
+  ],
+  "location_based": {
+    "us": [
+      "smallbusiness",
+      "Entrepreneur",
+      "business"
+    ],
+    "uk": [
+      "UKSmallBusiness",
+      "UKPersonalFinance",
+      "AskUK"
+    ],
+    "australia": [
+      "AusFinance",
+      "AusBusiness",
+      "australia"
+    ],
+    "canada": [
+      "PersonalFinanceCanada",
+      "smallbusiness",
+      "CanadianInvestor"
+    ]
+  },
+  "notes": {
+    "usage": "This configuration file maps industries to relevant subreddit communities for brand mention analysis.",
+    "customization": "Add or modify industry mappings based on client needs.",
+    "naming": "Subreddit names are case-sensitive. Use exact names as they appear on Reddit.",
+    "limits": "Keep lists to 5-10 most relevant subreddits per industry for optimal performance."
+  }
+}

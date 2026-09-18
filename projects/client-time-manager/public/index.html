@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Time Manager</title>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #334155;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --accent-blue: #3b82f6;
+      --accent-green: #22c55e;
+      --accent-red: #ef4444;
+      --accent-yellow: #eab308;
+      --accent-purple: #a855f7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    .header {
+      background: var(--bg-secondary);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--bg-card);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header h1 { font-size: 1.5rem; font-weight: 600; }
+    .header-actions { display: flex; gap: 1rem; align-items: center; }
+    .last-updated { color: var(--text-secondary); font-size: 0.875rem; }
+
+    .btn {
+      background: var(--accent-blue);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    .week-header { margin-bottom: 2rem; }
+    .week-header h2 { font-size: 1.25rem; color: var(--text-secondary); font-weight: 400; }
+
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-card {
+      background: var(--bg-secondary);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--bg-card);
+    }
+    .summary-card .label { color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem; }
+    .summary-card .value { font-size: 2rem; font-weight: 600; }
+    .summary-card.overdue .value { color: var(--accent-red); }
+    .summary-card.due .value { color: var(--accent-yellow); }
+    .summary-card.meetings .value { color: var(--accent-blue); }
+
+    .client-grid { display: grid; gap: 1.5rem; }
+
+    .client-card {
+      background: var(--bg-secondary);
+      border-radius: 0.75rem;
+      border: 1px solid var(--bg-card);
+      overflow: hidden;
+    }
+
+    .client-header {
+      background: var(--bg-card);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .client-name { font-size: 1.125rem; font-weight: 600; }
+    .client-badges { display: flex; gap: 0.5rem; }
+
+    .badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .badge.overdue { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+    .badge.due { background: rgba(234, 179, 8, 0.2); color: var(--accent-yellow); }
+    .badge.meetings { background: rgba(59, 130, 246, 0.2); color: var(--accent-blue); }
+
+    .client-content {
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .section { min-width: 0; }
+    .section-title {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .item-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .item {
+      background: var(--bg-card);
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .item-title { font-size: 0.875rem; flex: 1; color: var(--text-primary); text-decoration: none; }
+    .item-title:hover { text-decoration: underline; }
+    .item-meta { font-size: 0.75rem; color: var(--text-secondary); white-space: nowrap; }
+    .item.overdue { border-left: 3px solid var(--accent-red); }
+    .item.high-priority { border-left: 3px solid var(--accent-yellow); }
+
+    .ranking-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; }
+    .ranking-stat { padding: 0.5rem; background: var(--bg-card); border-radius: 0.5rem; }
+    .ranking-stat .number { font-size: 1.25rem; font-weight: 600; }
+    .ranking-stat .label { font-size: 0.625rem; color: var(--text-secondary); text-transform: uppercase; }
+    .ranking-stat.improved .number { color: var(--accent-green); }
+    .ranking-stat.declined .number { color: var(--accent-red); }
+
+    .fathom-summary { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+    .fathom-actions { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--bg-primary); }
+    .fathom-actions li { margin-left: 1rem; font-size: 0.8125rem; margin-bottom: 0.25rem; }
+
+    .empty-state { color: var(--text-secondary); font-size: 0.875rem; font-style: italic; }
+
+    .auth-banner { background: var(--accent-yellow); color: var(--bg-primary); padding: 1rem 2rem; text-align: center; }
+    .auth-banner a { color: var(--bg-primary); font-weight: 600; }
+
+    .loading { display: flex; justify-content: center; align-items: center; min-height: 50vh; font-size: 1.25rem; color: var(--text-secondary); }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { width: 2rem; height: 2rem; border: 3px solid var(--bg-card); border-top-color: var(--accent-blue); border-radius: 50%; animation: spin 1s linear infinite; margin-right: 1rem; }
+
+    /* Chat Panel */
+    .chat-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 1000;
+    }
+    .chat-toggle:hover { transform: scale(1.05); box-shadow: 0 6px 25px rgba(168, 85, 247, 0.5); }
+    .chat-toggle svg { width: 28px; height: 28px; fill: white; }
+
+    .chat-panel {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 450px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--bg-card);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1001;
+    }
+    .chat-panel.open { transform: translateX(0); }
+
+    .chat-header {
+      padding: 1rem 1.5rem;
+      background: var(--bg-card);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--bg-primary);
+    }
+    .chat-header h3 { display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; }
+    .chat-header h3 span { background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .chat-close { background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.5rem; line-height: 1; }
+    .chat-close:hover { color: var(--text-primary); }
+
+    .quick-actions { padding: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; border-bottom: 1px solid var(--bg-card); }
+    .quick-btn { background: var(--bg-card); border: 1px solid var(--bg-primary); color: var(--text-secondary); padding: 0.375rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; }
+    .quick-btn:hover { background: var(--accent-purple); color: white; border-color: var(--accent-purple); }
+
+    .chat-messages { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+    .message { max-width: 90%; padding: 0.75rem 1rem; border-radius: 1rem; font-size: 0.875rem; line-height: 1.5; }
+    .message.user { background: var(--accent-blue); color: white; align-self: flex-end; border-bottom-right-radius: 0.25rem; }
+    .message.assistant { background: var(--bg-card); color: var(--text-primary); align-self: flex-start; border-bottom-left-radius: 0.25rem; }
+    .message.assistant p { margin-bottom: 0.5rem; }
+    .message.assistant p:last-child { margin-bottom: 0; }
+    .message.assistant ul, .message.assistant ol { margin-left: 1.25rem; margin-bottom: 0.5rem; }
+    .message.assistant li { margin-bottom: 0.25rem; }
+    .message.assistant strong { color: var(--accent-purple); }
+    .message.thinking { background: var(--bg-card); color: var(--text-secondary); font-style: italic; }
+
+    .chat-input-area { padding: 1rem; border-top: 1px solid var(--bg-card); display: flex; gap: 0.5rem; }
+    .chat-input { flex: 1; background: var(--bg-card); border: 1px solid var(--bg-primary); color: var(--text-primary); padding: 0.75rem 1rem; border-radius: 1.5rem; font-size: 0.875rem; outline: none; }
+    .chat-input:focus { border-color: var(--accent-purple); }
+    .chat-input::placeholder { color: var(--text-secondary); }
+    .chat-send { background: var(--accent-purple); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .chat-send:hover { opacity: 0.9; }
+    .chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
+    .chat-send svg { width: 18px; height: 18px; fill: white; }
+
+    @media (max-width: 768px) { .chat-panel { width: 100%; } }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="loading">
+      <div class="spinner"></div>
+      Loading dashboard...
+    </div>
+  </div>
+
+  <button class="chat-toggle" onclick="toggleChat()" title="Ask Claude">
+    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/><path d="M7 9h10v2H7zm0-3h10v2H7z"/></svg>
+  </button>
+
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+      <h3><span>Claude</span> Assistant</h3>
+      <button class="chat-close" onclick="toggleChat()">&times;</button>
+    </div>
+    <div class="quick-actions">
+      <button class="quick-btn" onclick="quickInsight('weekly-summary')">Weekly Summary</button>
+      <button class="quick-btn" onclick="quickInsight('priorities')">Top Priorities</button>
+      <button class="quick-btn" onclick="quickInsight('overdue')">Overdue Items</button>
+      <button class="quick-btn" onclick="quickInsight('client-health')">Client Health</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="message assistant">
+        <p>Hi! I can help you:</p>
+        <ul>
+          <li>Summarise your week and priorities</li>
+          <li>Analyse specific clients and their QSP</li>
+          <li>Review meeting notes and action items</li>
+          <li>Create tasks from meeting transcripts</li>
+          <li>Check SEO performance</li>
+        </ul>
+        <p>What would you like to know?</p>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chat-input" placeholder="Ask about clients, tasks, meetings..." onkeypress="handleKeyPress(event)">
+      <button class="chat-send" onclick="sendMessage()">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = '';
+    let chatOpen = false;
+
+    function toggleChat() {
+      chatOpen = !chatOpen;
+      document.getElementById('chat-panel').classList.toggle('open', chatOpen);
+      if (chatOpen) document.getElementById('chat-input').focus();
+    }
+
+    function handleKeyPress(e) { if (e.key === 'Enter') sendMessage(); }
+
+    async function sendMessage() {
+      const input = document.getElementById('chat-input');
+      const message = input.value.trim();
+      if (!message) return;
+      input.value = '';
+      addMessage(message, 'user');
+      addMessage('Thinking...', 'thinking');
+      try {
+        const res = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message }) });
+        removeThinking();
+        const data = await res.json();
+        addMessage(res.ok ? data.response : `Error: ${data.error}`, 'assistant');
+      } catch { removeThinking(); addMessage('Failed to connect.', 'assistant'); }
+    }
+
+    async function quickInsight(type) {
+      const labels = { 'weekly-summary': 'Weekly summary', 'priorities': 'Top priorities', 'overdue': 'Overdue items', 'client-health': 'Client health' };
+      addMessage(labels[type], 'user');
+      addMessage('Analysing...', 'thinking');
+      try {
+        const res = await fetch(`/api/insights/${type}`);
+        removeThinking();
+        const data = await res.json();
+        addMessage(res.ok ? data.response : `Error: ${data.error}`, 'assistant');
+      } catch { removeThinking(); addMessage('Failed to generate insight.', 'assistant'); }
+    }
+
+    function addMessage(content, type) {
+      const msgs = document.getElementById('chat-messages');
+      const div = document.createElement('div');
+      div.className = `message ${type}`;
+      div.innerHTML = type === 'assistant' ? formatMessage(content) : content;
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function removeThinking() {
+      const t = document.querySelector('.message.thinking');
+      if (t) t.remove();
+    }
+
+    function formatMessage(text) {
+      return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/^- (.+)$/gm, '<li>$1</li>').replace(/^\d+\. (.+)$/gm, '<li>$1</li>').replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>').replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
+    }
+
+    async function fetchData() {
+      try { const r = await fetch('/api/data'); return r.ok ? await r.json() : null; } catch { return null; }
+    }
+
+    async function checkAuth() {
+      try { const r = await fetch('/api/auth/status'); return await r.json(); } catch { return { googleAuth: false }; }
+    }
+
+    async function refreshData() {
+      const btn = document.getElementById('refresh-btn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Refreshing...'; }
+      try {
+        const res = await fetch('/api/refresh', { method: 'POST' });
+        if (res.ok) renderDashboard(await res.json());
+        else { const err = await res.json(); if (err.authUrl) window.location.href = err.authUrl; else alert(err.error); }
+      } catch { alert('Error refreshing'); }
+      finally { if (btn) { btn.disabled = false; btn.textContent = 'Refresh Data'; } }
+    }
+
+    function formatDate(d) { return new Date(d).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }); }
+    function formatTime(d) { return new Date(d).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); }
+    function formatDateTime(d) { return `${formatDate(d)} ${formatTime(d)}`; }
+
+    function renderDashboard(data) {
+      const app = document.getElementById('app');
+      if (!data) { app.innerHTML = '<div class="auth-banner">No data. <a href="#" onclick="refreshData()">Fetch data</a></div>'; return; }
+      const { weeklyOverview: wo, lastUpdated } = data;
+      let totalOverdue = 0, totalDue = 0, totalMeetings = 0;
+      wo.clients.forEach(c => { totalOverdue += c.tasksOverdue?.length || 0; totalDue += c.tasksDue?.length || 0; totalMeetings += c.upcomingMeetings?.length || 0; });
+      app.innerHTML = `
+        <header class="header"><h1>Client Time Manager</h1><div class="header-actions"><span class="last-updated">Updated: ${formatDateTime(lastUpdated)}</span><button class="btn" id="refresh-btn" onclick="refreshData()">Refresh</button></div></header>
+        <div class="container">
+          <div class="week-header"><h2>Week of ${formatDate(wo.weekStart)} - ${formatDate(wo.weekEnd)}</h2></div>
+          <div class="summary-cards">
+            <div class="summary-card overdue"><div class="label">Overdue</div><div class="value">${totalOverdue}</div></div>
+            <div class="summary-card due"><div class="label">Due This Week</div><div class="value">${totalDue}</div></div>
+            <div class="summary-card meetings"><div class="label">Meetings</div><div class="value">${totalMeetings}</div></div>
+          </div>
+          <div class="client-grid">${wo.clients.map(c => renderClient(c)).join('')}</div>
+        </div>`;
+    }
+
+    function renderClient(c) {
+      const od = c.tasksOverdue?.length || 0, du = c.tasksDue?.length || 0, mt = c.upcomingMeetings?.length || 0;
+      return `<div class="client-card"><div class="client-header"><span class="client-name">${c.client.name}</span><div class="client-badges">${od ? `<span class="badge overdue">${od} overdue</span>` : ''}${du ? `<span class="badge due">${du} due</span>` : ''}${mt ? `<span class="badge meetings">${mt} meetings</span>` : ''}</div></div><div class="client-content">${renderTasks('Overdue', c.tasksOverdue, true)}${renderTasks('Due This Week', c.tasksDue)}${renderMeetings(c.upcomingMeetings)}${renderRankings(c.rankingSnapshot)}${renderFathom(c.recentMeetings)}</div></div>`;
+    }
+
+    function renderTasks(title, tasks, overdue = false) {
+      if (!tasks?.length) return '';
+      return `<div class="section"><h4 class="section-title">${title}</h4><div class="item-list">${tasks.slice(0,5).map(t => `<div class="item ${overdue ? 'overdue' : ''} ${t.priority === 'High' ? 'high-priority' : ''}"><a href="${t.url}" target="_blank" class="item-title">${t.title}</a><span class="item-meta">${t.dueDate ? formatDate(t.dueDate) : ''}</span></div>`).join('')}${tasks.length > 5 ? `<div class="empty-state">+${tasks.length-5} more</div>` : ''}</div></div>`;
+    }
+
+    function renderMeetings(m) {
+      if (!m?.length) return '';
+      return `<div class="section"><h4 class="section-title">Meetings</h4><div class="item-list">${m.slice(0,5).map(e => `<div class="item"><span class="item-title">${e.title}</span><span class="item-meta">${formatDateTime(e.start)}</span></div>`).join('')}</div></div>`;
+    }
+
+    function renderRankings(r) {
+      if (!r) return '';
+      return `<div class="section"><h4 class="section-title">SEO</h4><div class="ranking-summary"><div class="ranking-stat improved"><div class="number">${r.positionChanges.improved}</div><div class="label">Up</div></div><div class="ranking-stat declined"><div class="number">${r.positionChanges.declined}</div><div class="label">Down</div></div><div class="ranking-stat"><div class="number">${r.averagePosition.toFixed(1)}</div><div class="label">Avg</div></div></div></div>`;
+    }
+
+    function renderFathom(m) {
+      if (!m?.length) return '';
+      const l = m[0];
+      return `<div class="section"><h4 class="section-title">Latest Meeting</h4><div class="fathom-summary">${l.summary.substring(0,150)}...${l.actionItems?.length ? `<div class="fathom-actions"><strong>Actions:</strong><ul>${l.actionItems.slice(0,3).map(a => `<li>${a}</li>`).join('')}</ul></div>` : ''}</div></div>`;
+    }
+
+    async function init() {
+      const auth = await checkAuth();
+      const data = await fetchData();
+      if (!auth.googleAuth && !data) {
+        document.getElementById('app').innerHTML = `<div class="auth-banner">Google auth required. <a href="${auth.authUrl}">Connect</a></div>`;
+        return;
+      }
+      renderDashboard(data);
+    }
+
+    init();
+  </script>
+</body>
+</html>

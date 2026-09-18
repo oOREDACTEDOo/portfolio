@@ -1,0 +1,24 @@
+.env
+.env.local
+.env.*.local
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.log
+.DS_Store
+*.pem
+*.key
+credentials.json
+
+# Decrypted report sources. NEVER COMMIT THESE.
+# This repo is public and served by GitHub Pages. reports/ holds the encrypted
+# wrappers that are safe to publish; reports-src/ holds the same documents in
+# clear text, including confidential client data. Committing it would publish
+# every report and make the encryption pointless.
+reports-src/
+
+# Rendered PDFs of the reports. Also never commit these: they are the same
+# confidential content with no password gate at all, and this repo is public.
+reports/*.pdf

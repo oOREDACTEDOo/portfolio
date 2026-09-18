@@ -1,0 +1,74 @@
+[
+  {
+    "keyword": "construction equipment hire",
+    "industry": "Construction/Infrastructure",
+    "category": "General Equipment",
+    "volume_au": 210,
+    "volume_nz": 10,
+    "total_volume": 220
+  },
+  {
+    "keyword": "construction site storage",
+    "industry": "Construction/Infrastructure",
+    "category": "Mobile Storage/Containers",
+    "volume_au": 20,
+    "volume_nz": 10,
+    "total_volume": 30
+  },
+  {
+    "keyword": "construction machinery rental",
+    "industry": "Construction/Infrastructure",
+    "category": "General Equipment",
+    "volume_au": 90,
+    "volume_nz": 10,
+    "total_volume": 100
+  },
+  {
+    "keyword": "mining equipment hire",
+    "industry": "Mining",
+    "category": "General Equipment",
+    "volume_au": 140,
+    "volume_nz": 10,
+    "total_volume": 150
+  },
+  {
+    "keyword": "mining containers",
+    "industry": "Mining",
+    "category": "Mobile Storage/Containers",
+    "volume_au": 10,
+    "volume_nz": 10,
+    "total_volume": 20
+  },
+  {
+    "keyword": "infrastructure equipment",
+    "industry": "Construction/Infrastructure",
+    "category": "General Equipment",
+    "volume_au": 10,
+    "volume_nz": 10,
+    "total_volume": 20
+  },
+  {
+    "keyword": "civil construction equipment",
+    "industry": "Construction/Infrastructure",
+    "category": "General Equipment",
+    "volume_au": 50,
+    "volume_nz": 10,
+    "total_volume": 60
+  },
+  {
+    "keyword": "agricultural machinery rental",
+    "industry": "Agriculture",
+    "category": "General Equipment",
+    "volume_au": 10,
+    "volume_nz": 10,
+    "total_volume": 20
+  },
+  {
+    "keyword": "event equipment hire",
+    "industry": "Events",
+    "category": "General Equipment",
+    "volume_au": 90,
+    "volume_nz": 10,
+    "total_volume": 100
+  }
+]

@@ -1,0 +1,551 @@
+[
+  {
+    "brand": "Royal Wolf",
+    "total_keywords": 2365,
+    "total_volume": 410080,
+    "avg_position": 7.8,
+    "top_10_count": 1634,
+    "top_3_count": 750,
+    "local_keywords": 675,
+    "local_volume": 93690,
+    "national_keywords": 1690,
+    "national_volume": 316390,
+    "local_percent": 28.54,
+    "category_breakdown": {
+      "Keyword": {
+        "Mobile Storage/Containers": 2047,
+        "Uncategorized": 318
+      },
+      "Search Volume": {
+        "Mobile Storage/Containers": 364810,
+        "Uncategorized": 45270
+      },
+      "Position": {
+        "Mobile Storage/Containers": 7.63,
+        "Uncategorized": 8.88
+      }
+    },
+    "intent_breakdown": {
+      "Keyword": {
+        "Commercial": 1861,
+        "Informational": 36,
+        "Transactional": 468
+      },
+      "Search Volume": {
+        "Commercial": 338180,
+        "Informational": 3030,
+        "Transactional": 68870
+      }
+    },
+    "top_keywords": [
+      {
+        "Keyword": "container",
+        "Position": 6,
+        "Search Volume": 8100,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping container",
+        "Position": 2,
+        "Search Volume": 6600,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping container",
+        "Position": 18,
+        "Search Volume": 6600,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "containers",
+        "Position": 14,
+        "Search Volume": 5400,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping containers for sale",
+        "Position": 1,
+        "Search Volume": 3600,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping containers shipping containers",
+        "Position": 5,
+        "Search Volume": 2900,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping container container",
+        "Position": 5,
+        "Search Volume": 2900,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "storage container",
+        "Position": 6,
+        "Search Volume": 2900,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping containers shipping containers",
+        "Position": 18,
+        "Search Volume": 2900,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping container container",
+        "Position": 20,
+        "Search Volume": 2900,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping container wanted to buy",
+        "Position": 1,
+        "Search Volume": 2400,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "shipping containers",
+        "Position": 2,
+        "Search Volume": 2400,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "storage in canberra",
+        "Position": 18,
+        "Search Volume": 2400,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "royal wolf",
+        "Position": 1,
+        "Search Volume": 1900,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "storage moorebank",
+        "Position": 5,
+        "Search Volume": 1900,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping container dimensions",
+        "Position": 14,
+        "Search Volume": 1900,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "storage canberra",
+        "Position": 17,
+        "Search Volume": 1900,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping container for sale",
+        "Position": 2,
+        "Search Volume": 1600,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shipping containers shipping",
+        "Position": 3,
+        "Search Volume": 1600,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "geelong storage",
+        "Position": 14,
+        "Search Volume": 1600,
+        "Category": "Mobile Storage/Containers",
+        "Intent": "Commercial"
+      }
+    ]
+  },
+  {
+    "brand": "Orange Hire",
+    "total_keywords": 572,
+    "total_volume": 91550,
+    "avg_position": 9.52,
+    "top_10_count": 359,
+    "top_3_count": 55,
+    "local_keywords": 172,
+    "local_volume": 22620,
+    "national_keywords": 400,
+    "national_volume": 68930,
+    "local_percent": 30.07,
+    "category_breakdown": {
+      "Keyword": {
+        "General Equipment": 181,
+        "Mobile Storage/Containers": 7,
+        "Trench Safety/Specialty": 7,
+        "Uncategorized": 377
+      },
+      "Search Volume": {
+        "General Equipment": 26870,
+        "Mobile Storage/Containers": 590,
+        "Trench Safety/Specialty": 530,
+        "Uncategorized": 63560
+      },
+      "Position": {
+        "General Equipment": 9.62,
+        "Mobile Storage/Containers": 7.57,
+        "Trench Safety/Specialty": 7.71,
+        "Uncategorized": 9.54
+      }
+    },
+    "intent_breakdown": {
+      "Keyword": {
+        "Commercial": 204,
+        "Informational": 2,
+        "Transactional": 366
+      },
+      "Search Volume": {
+        "Commercial": 30980,
+        "Informational": 210,
+        "Transactional": 60360
+      }
+    },
+    "top_keywords": [
+      {
+        "Keyword": "excavator hire",
+        "Position": 3,
+        "Search Volume": 4400,
+        "Category": "General Equipment",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "hire",
+        "Position": 17,
+        "Search Volume": 2900,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "hire",
+        "Position": 20,
+        "Search Volume": 2900,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "orange hire",
+        "Position": 1,
+        "Search Volume": 1600,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "Client J",
+        "Position": 14,
+        "Search Volume": 1300,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "orange careers",
+        "Position": 16,
+        "Search Volume": 1000,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "excavator licence",
+        "Position": 17,
+        "Search Volume": 1000,
+        "Category": "General Equipment",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "post hole auger hire",
+        "Position": 18,
+        "Search Volume": 1000,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "mobile toilet hire",
+        "Position": 5,
+        "Search Volume": 880,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "skid steer hire",
+        "Position": 5,
+        "Search Volume": 880,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "hire excavator",
+        "Position": 7,
+        "Search Volume": 880,
+        "Category": "General Equipment",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "excavator license",
+        "Position": 8,
+        "Search Volume": 880,
+        "Category": "General Equipment",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "water cart",
+        "Position": 14,
+        "Search Volume": 880,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "hire excavator",
+        "Position": 19,
+        "Search Volume": 880,
+        "Category": "General Equipment",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "digger hire",
+        "Position": 20,
+        "Search Volume": 880,
+        "Category": "General Equipment",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "telehandler hire",
+        "Position": 9,
+        "Search Volume": 720,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "auger hire",
+        "Position": 5,
+        "Search Volume": 590,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "roller hire",
+        "Position": 6,
+        "Search Volume": 590,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "water barrier",
+        "Position": 6,
+        "Search Volume": 590,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "vms board",
+        "Position": 7,
+        "Search Volume": 590,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      }
+    ]
+  },
+  {
+    "brand": "Shore Hire",
+    "total_keywords": 484,
+    "total_volume": 94610,
+    "avg_position": 9.05,
+    "top_10_count": 285,
+    "top_3_count": 109,
+    "local_keywords": 57,
+    "local_volume": 7630,
+    "national_keywords": 427,
+    "national_volume": 86980,
+    "local_percent": 11.78,
+    "category_breakdown": {
+      "Keyword": {
+        "Trench Safety/Specialty": 158,
+        "Uncategorized": 326
+      },
+      "Search Volume": {
+        "Trench Safety/Specialty": 27180,
+        "Uncategorized": 67430
+      },
+      "Position": {
+        "Trench Safety/Specialty": 8.04,
+        "Uncategorized": 9.53
+      }
+    },
+    "intent_breakdown": {
+      "Keyword": {
+        "Commercial": 359,
+        "Informational": 11,
+        "Transactional": 114
+      },
+      "Search Volume": {
+        "Commercial": 75640,
+        "Informational": 2450,
+        "Transactional": 16520
+      }
+    },
+    "top_keywords": [
+      {
+        "Keyword": "shorees",
+        "Position": 2,
+        "Search Volume": 3600,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shorees",
+        "Position": 10,
+        "Search Volume": 3600,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shorees",
+        "Position": 13,
+        "Search Volume": 3600,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "acrow props",
+        "Position": 9,
+        "Search Volume": 2900,
+        "Category": "Trench Safety/Specialty",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "props",
+        "Position": 13,
+        "Search Volume": 2400,
+        "Category": "Trench Safety/Specialty",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "manhole",
+        "Position": 7,
+        "Search Volume": 1900,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "sshore",
+        "Position": 9,
+        "Search Volume": 1900,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "hydraulic jack",
+        "Position": 12,
+        "Search Volume": 1900,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shore hire",
+        "Position": 1,
+        "Search Volume": 1300,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "meaning of propping",
+        "Position": 7,
+        "Search Volume": 1300,
+        "Category": "Trench Safety/Specialty",
+        "Intent": "Informational"
+      },
+      {
+        "Keyword": "Client J",
+        "Position": 16,
+        "Search Volume": 1300,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "acro props",
+        "Position": 16,
+        "Search Volume": 1300,
+        "Category": "Trench Safety/Specialty",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "home shored services",
+        "Position": 19,
+        "Search Volume": 1300,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "acro prop",
+        "Position": 19,
+        "Search Volume": 1300,
+        "Category": "Trench Safety/Specialty",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "edge protection",
+        "Position": 11,
+        "Search Volume": 1000,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "Client J Client J",
+        "Position": 11,
+        "Search Volume": 1000,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "acrow prop",
+        "Position": 11,
+        "Search Volume": 1000,
+        "Category": "Trench Safety/Specialty",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "temporary fence hire",
+        "Position": 12,
+        "Search Volume": 1000,
+        "Category": "Uncategorized",
+        "Intent": "Transactional"
+      },
+      {
+        "Keyword": "kerb ramp",
+        "Position": 12,
+        "Search Volume": 1000,
+        "Category": "Uncategorized",
+        "Intent": "Commercial"
+      },
+      {
+        "Keyword": "shoring",
+        "Position": 2,
+        "Search Volume": 880,
+        "Category": "Trench Safety/Specialty",
+        "Intent": "Commercial"
+      }
+    ]
+  }
+]

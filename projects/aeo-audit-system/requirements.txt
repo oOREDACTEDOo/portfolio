@@ -1,0 +1,61 @@
+# Web Scraping & Browser Automation
+playwright==1.40.0
+beautifulsoup4==4.12.2
+lxml==5.1.0
+requests==2.31.0
+
+# Reddit API
+praw==7.7.1
+
+# Flask API Framework
+flask==3.0.0
+flask-cors==4.0.0
+werkzeug==3.0.1
+
+# Environment & Configuration
+python-dotenv==1.0.0
+
+# Data Processing
+pandas==2.1.4
+
+# AI APIs
+anthropic==0.18.0
+openai==1.12.0
+
+# Logging & Monitoring
+colorlog==6.8.0
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+
+# Code Quality
+black==23.12.1
+pylint==3.0.3
+mypy==1.7.1
+isort==5.13.2
+
+# Type Hints
+types-requests==2.31.0.10
+types-beautifulsoup4==4.12.0.7
+
+# Rate Limiting & Retry
+tenacity==8.2.3
+ratelimit==2.2.1
+
+# Caching (Optional - for future)
+redis==5.0.1
+
+# Async (Optional - for future)
+celery==5.3.4
+
+# Date/Time
+python-dateutil==2.8.2
+pytz==2023.3
+
+# JSON Schema Validation
+jsonschema==4.20.0
+
+# HTTP Client (Alternative to requests)
+httpx==0.25.2

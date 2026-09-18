@@ -24,6 +24,16 @@ Real client deliverables, each produced by a repeatable workflow rather than wri
 
 Each report is password-protected (real encryption, not a cosmetic gate). Password provided separately.
 
+**Editing a report.** `reports/` holds the encrypted wrappers that get published; `reports-src/` holds the plaintext sources and is **gitignored, because this repo is public**. Committing it, or the rendered PDFs, would publish every report in clear text and make the encryption pointless.
+
+```sh
+REPORT_PASSWORD=... python3 scripts/crypt.py decrypt reports      # -> reports-src/
+# edit in reports-src/
+REPORT_PASSWORD=... python3 scripts/crypt.py encrypt reports-src  # -> reports/
+```
+
+Always verify the round-trip afterwards by decrypting again and diffing against the source. The authentication tag check is the same one the browser runs, so a clean diff means the password gate still works.
+
 **Click through from here, not from the GitHub file browser.** GitHub shows `.html` files as source code when you browse the repo directly; these links go to the live rendered version instead:
 
 | Report | Link |
